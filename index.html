@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria Altana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Saira+Condensed:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e64ccbce75.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+
+<body>
+
+    <header id="header" class="main">
+        <div class="main__shadow"></div>
+
+        <nav class="nav">
+            <img class="nav__logo" src="images/altana-logo.svg" alt="Logo pizzeri">
+            <i class="fas fa-times closeBtn"></i>
+            <div class="nav__links">
+                <a href="#header">Strona Główna</a>
+                <a href="#menu">Menu</a>
+                <a href="#reviews">Opinie</a>
+                <a href="#about">O nas</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </nav>
+
+        <i class="fas fa-bars main__menu-icon"></i>
+
+        <div class="main__border">
+            <div class="main__title">Pizzeria Altana</div>
+            <div class="main__subText">Najlepsza Włoska Pizza</div>
+            <div class="main__phone"> <i class="fas fa-phone"> </i>123 456 789</div>
+        </div>
+
+        <div class="scrollDown">
+            <i class="scrollDown__arrow fas fa-chevron-down"></i>
+        </div>
+
+    </header>
+
+    <div class="wrapper">
+
+        <section id="menu" class="menu">
+            <div class="menu__title">Zamów już teraz</div>
+            <div class="menu__subTitle">Średnica pizzy to 32cm, a każdy napój zawiera 0,5 litra, przy zamówieniu powyżej 69zł dostawa gratis.
+            </div>
+
+            <div class="menu__box">
+
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Margherita</h2>
+                    <span class="menu__box__price">19zł</span>
+                    <i class="fas fa-plus menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients">pulpa pomidorowa, mozzarela, świeża bazylia</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Napoli</h2>
+                    <span class="menu__box__price">22zł</span>
+                    <i class="fas fa-plus menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients">pulpa pomidorowa, mozzarela, salami napoli</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Spianata</h2>
+                    <span class="menu__box__price">22zł</span>
+                    <i class="fas fa-plus menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients ">pulpa pomidorowa, mozzarela, włoskie salami spiannata</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Hot!</h2>
+                    <span class="menu__box__price">26zł</span>
+                    <i class="fas fa-plus  menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients">pulpa pomidorowa, mozzarela, ostre papryczki, ostre salami</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Firmowa</h2>
+                    <span class="menu__box__price">30zł</span>
+                    <i class="fas fa-plus menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients">pulpa pomidorowa, mozzarela, włoskie salami, ogórek kiszony,
+                        gorgonzola, nduja</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+                <div class="menu__box__item">
+                    <h2 class="menu__box__name">Sprite</h2>
+                    <span class="menu__box__price">8zł</span>
+                    <i class="fas fa-plus menu__box__plusBtn"></i>
+                    <p class="menu__box__ingredients">Napój 0,5 litra</p>
+                    <i class="fas fa-minus menu__box__minusBtn"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="reviews" class="reviews">
+
+            <div class="reviews__titleBox">
+                <h3 class="reviews__title">Opinie</h3>
+                <p class="reviews__subTitle">Zobacz co sądzą o nas klienci.</p>
+            </div>
+            <div class="reviews__place">
+                <div class="reviews__box">
+                    <img src="images\review1-min.jpg" alt="" class="reviews__profilPicture">
+                    <div class="reviews__name">Maciek</div>
+                    <div class="reviews__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="reviews__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis asperiores
+                        omnis doloremque impedit modi dicta nostrum pariatur natus minima ipsa?</div>
+
+                </div>
+                <div class="reviews__box">
+                    <img src="images\review2-min.jpg" alt="" class="reviews__profilPicture">
+                    <div class="reviews__name">Wojciech</div>
+                    <div class="reviews__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="reviews__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, odio.
+                        Veniam dolores dignissimos doloremque natus! Aperiam, expedita doloremque et velit aspernatur
+                        adipisci corporis sed perspiciatis?</div>
+
+                </div>
+                <div class="reviews__box">
+                    <img src="images\review3-min.jpg" alt="" class="reviews__profilPicture">
+                    <div class="reviews__name">Dawid</div>
+                    <div class="reviews__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="reviews__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+                        voluptatem cum nobis earum aliquam, quia reprehenderit animi iste.</div>
+                </div>
+
+                <div class="reviews__box">
+                    <img src="images\review4-min.jpg" alt="" class="reviews__profilPicture">
+                    <div class="reviews__name">Joanna</div>
+                    <div class="reviews__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="reviews__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ipsum odit
+                        dolores nulla numquam, tempora harum animi recusandae dicta voluptas esse.</div>
+
+                </div>
+            </div>
+
+            <div class="reviews__add">
+                <p class="reviews__add__title">Dodaj swoją opinię</p>
+                <form class="reviews__add__box" action="">
+                    <label for="">Imię:</label>
+                    <input class="reviews__username" type="text">
+                    <label class="" for="">Link do obrazka:</label>
+                    <input class="reviews__linkToProfile" type="text">
+                    <label for="">Ocena:</label>
+                    <input class="reviews__numberStars" type="number" min="1" max="5" placeholder="Ocena od 1 do 5">
+                    <label for="">Treść opinii:</label>
+                    <textarea maxlength="200" class="reviews__textarea" id="" cols="20" rows="10"></textarea>
+                    <button class="reviews__sendBtn">Wyślij</button>
+                    <p class="reviews__error"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="about__title">O nas</h2>
+            <p class="about__subText">Zobacz galerię</p>
+
+            <div class="about__slider">
+
+                <div class="about__slide">
+                    <div class="about__numberSlide">1 / 3</div>
+                    <img src="images/slider-photos/brick-wall-1834784_960_720.jpg" alt="" class="about__img">
+                    <div class="about__description"></div>
+                </div>
+                <div class="about__slide">
+                    <div class="about__numberSlide">2 / 3</div>
+                    <img src="images/slider-photos/restaurant-1837150_960_720.jpg" alt="" class="about__img">
+                    <div class="about__description"></div>
+                </div>
+                <div class="about__slide">
+                    <div class="about__numberSlide">3 / 3</div>
+                    <img src="images/slider-photos/restaurant-1284351_960_720.webp" alt="" class="about__img">
+                    <div class="about__description"></div>
+                </div>
+
+                <div class="about__dots-container">
+                    <span class="about__dot"></span>
+                    <span class="about__dot"></span>
+                    <span class="about__dot"></span>
+                </div>
+
+            </div>
+
+            <div class="about__faq">
+
+                <div class="about__box">
+                    <button class="about__faqBtn">
+                        <i class="fas fa-pizza-slice about__pizzaIcon"></i>
+                        <p> Kim jesteśmy?</p>
+                    </button>
+                    <div class="about__info">
+                        <p class="about__infoText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                            voluptatibus molestias iste, porro reprehenderit molestiae.</p>
+                        <p class="about__infoText">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                </div>
+
+                <div class="about__box">
+                    <button class="about__faqBtn">
+                        <i class="fas fa-truck about__truckIcon"></i>
+                        <p> Czy możliwy jest dowóz? </p>
+                    </button>
+                    <div class="about__info">
+                        <p class="about__infoText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                            voluptatibus molestias iste, porro reprehenderit molestiae. Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="about__box">
+                    <button class="about__faqBtn">
+                        <i class="fas fa-utensils about__utensilsIcon"></i>
+                        <p>Jak długo czeka się na zamówienie?</p>
+                    </button>
+                    <div class="about__info">
+                        <p class="about__infoText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                            voluptatibus molestias iste, porro reprehenderit molestiae.</p>
+                        <p class="about__infoText">Lorem ipsum, dolor sit amet..</p>
+                    </div>
+                </div>
+                <div class="about__box">
+                    <button class="about__faqBtn">
+                        <i class="fas fa-map-marked-alt about__utensilsIcon"></i>
+                        <p>Jaka jest wasza lokalizacja?</p>
+                    </button>
+                    <div class="about__info">
+                        <p class="about__infoText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                            voluptatibus molestias iste, porro reprehenderit molestiae.</p>
+                        <p class="about__infoText">Lorem ipsum, dolor sit amet..</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="contact" class="contact">
+            <h3>Kontakt</h3>
+            <div id="map" class="contact__map "></div>
+            <div class="contact__box">
+                <p class="contact__title">Skontaktuj się z nami</p>
+                <div class="contact__details">
+                    <div class="contact__phone"><i class="fas fa-phone-alt"></i>
+                        <p>696 969 696</p>
+                    </div>
+                    <div class="contact__mail"><i class="fas fa-envelope-open"></i>
+                        <p>mail@gmail.com</p>
+                    </div>
+                    <div class="contact__adress"><i class="fas fa-map-marker-alt"></i>
+                        <p>ul. Nieznana 69/2137</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <div class="footer__first-section">
+                <h3 class="footer__title">Pizzeria Altana</h3>
+                <div class="footer__line"></div>
+                <p class="footer__subText">Zaobserwuj nas na socialach:</p>
+                <div class="footer__box-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-google"></i>
+                </div>
+            </div>
+
+            <div class="footer__second-section">
+                <a href="#header">Strona Główna</a>
+                <a href="#menu">Menu</a>
+                <a href="#reviews">Opinie</a>
+                <a href="#about">O nas</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,749 @@
+@import '__keyframes.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: 'Saira Condensed', sans-serif;
+	scroll-behavior: smooth;
+}
+button {
+	cursor: pointer;
+}
+
+body {
+	height: 100vh;
+	color: white;
+	background-color: rgb(41, 41, 41);
+	font-size: 1.6rem;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	max-width: 1400px;
+}
+
+// STRONA GŁÓWNA
+
+.main {
+	position: relative;
+
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-x: hidden;
+
+	background-image: url('../images/pizza-small.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.425);
+	}
+}
+
+.main__menu-icon {
+	position: absolute;
+	font-size: 3rem;
+	top: 1rem;
+	right: 1rem;
+	cursor: pointer;
+	color: white;
+	padding: 2rem;
+}
+
+.main__border {
+	z-index: 1;
+	width: 70%;
+	padding: 1rem 0;
+	height: min-content;
+	border: 3px solid white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	animation: mainBorder 1s;
+}
+
+.main__title {
+	font-family: 'Hurricane', cursive;
+	font-size: 3.5rem;
+}
+
+.main__subText {
+	font-size: 2rem;
+}
+.main__phone {
+	font-size: 2rem;
+}
+
+.fa-phone {
+	margin-right: 1rem;
+}
+
+.scrollDown {
+	position: absolute;
+	height: 4rem;
+	width: 4rem;
+	background-color: rgba(0, 0, 0, 0.699);
+	border-radius: 50%;
+	bottom: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.scrollDown__arrow {
+	animation: scrollMain 1s ease-in-out infinite alternate-reverse;
+}
+
+// NAWIGACJA
+
+.nav {
+	position: fixed;
+	background-color: #fff;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		margin-bottom: 5rem;
+	}
+	&__logo {
+		height: 35%;
+	}
+	a {
+		text-decoration: none;
+		color: rgb(236, 4, 4);
+	}
+	font-size: 2.5rem;
+	width: 100%;
+	transform: translateX(100%);
+	z-index: 2;
+	transition: transform 0.5s, opacity 1s;
+}
+
+.deleteFixed {
+	position: absolute;
+}
+
+.closeBtn {
+	color: black;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 3rem;
+	cursor: pointer;
+	padding: 2rem;
+}
+
+.activeMenu {
+	transform: translateX(0);
+}
+
+@media only screen and (min-width: 510px) {
+	.closeBtn {
+		font-size: 5rem;
+	}
+	.main__menu-icon {
+		font-size: 5rem;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.main {
+		background-image: url('../images/pizza-big.jpg');
+		&__menu-icon {
+			display: none;
+		}
+
+		&__border {
+			width: 100%;
+			border: 0;
+			animation: none;
+		}
+		&__title {
+			font-size: 15rem;
+			animation: titleMain 3s ease;
+		}
+
+		&__subText {
+			font-size: 5rem;
+			opacity: 0;
+			animation: titleMain 3s 0.5s ease forwards;
+		}
+		&__phone {
+			font-size: 3rem;
+			opacity: 0;
+			animation: titleMain 3s 2s ease forwards;
+		}
+
+		.scrollDown {
+			display: none;
+		}
+	}
+
+	.nav {
+		transform: translateX(0);
+		background-color: transparent;
+		flex-direction: row;
+		height: 10rem;
+		top: 0;
+		background-color: rgb(255, 255, 255);
+		justify-content: space-around;
+
+		&__logo {
+			height: 15rem;
+		}
+
+		&__links {
+			position: relative;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+
+			width: 80%;
+			height: 10rem;
+			margin: 0;
+		}
+		a {
+			position: relative;
+		}
+
+		a:hover::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: -100%;
+			width: 100%;
+			height: 2px;
+			background-color: red;
+			animation: hoverLink 0.5s forwards;
+		}
+	}
+
+	.closeBtn {
+		display: none;
+	}
+}
+
+// MENU
+
+.menu {
+	&__title {
+		font-size: 3rem;
+		text-align: center;
+		font-weight: bold;
+		padding-top: 2rem;
+	}
+	&__subTitle {
+		text-align: center;
+		padding: 1rem 1rem;
+	}
+}
+
+.menu__box {
+	padding-bottom: 3rem;
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-direction: row;
+		padding: 0.5rem 2rem;
+		margin: 0 3rem;
+		font-size: 2rem;
+		background-color: red;
+		margin-top: 2rem;
+	}
+	&__name {
+		flex-basis: 50%;
+	}
+
+	&__ingredients {
+		flex-basis: 100%;
+		display: none;
+		padding-top: 1rem;
+		transition: all 2s;
+	}
+
+	&__minusBtn {
+		display: none;
+		position: absolute;
+		top: 1.8rem;
+		right: 1.8rem;
+		cursor: pointer;
+	}
+
+	&__plusBtn {
+		cursor: pointer;
+	}
+}
+
+.active-ingredients {
+	display: block;
+	height: 4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+	.menu__box {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		&__item {
+			width: 40%;
+		}
+	}
+}
+
+// OPINIE
+
+.reviews {
+	width: 100%;
+	&__titleBox {
+		display: flex;
+		flex-direction: column;
+		padding: 2rem 0;
+		gap: 1rem;
+		align-items: center;
+		h3 {
+			font-size: 3rem;
+		}
+	}
+
+	&__box {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		width: 90%;
+		height: min-content;
+		border: 1px solid gold;
+		margin: 2rem auto;
+	}
+
+	&__profilPicture {
+		padding: 1rem 2rem;
+		width: 10rem;
+		height: 8rem;
+		border-radius: 50%;
+	}
+
+	&__name {
+		position: absolute;
+		left: 12rem;
+		top: 1rem;
+		font-size: 2rem;
+	}
+
+	&__stars {
+		position: absolute;
+		display: flex;
+		left: 12rem;
+		top: 5rem;
+	}
+	&__text {
+		flex-basis: 100%;
+		margin: 1rem 2rem;
+	}
+
+	.fa-star {
+		color: rgb(255, 217, 0);
+	}
+}
+
+// DODAWANIE OPINII
+
+.reviews {
+	&__add {
+		padding-bottom: 1rem;
+	}
+	&__add__title {
+		margin-top: 5rem;
+		text-align: center;
+		font-size: 2rem;
+		font-weight: bold;
+	}
+	&__add__box {
+		position: relative;
+		width: 90%;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid gold;
+		padding: 2rem 3rem;
+		margin: 1rem auto;
+		gap: 0.5rem;
+	}
+	&__username,
+	&__numberStars,
+	&__textarea,
+	&__linkToProfile {
+		max-width: 100%;
+		padding: 1rem 0.5rem;
+		font-size: 1.6rem;
+	}
+
+	&__sendBtn {
+		margin: 0 auto;
+		margin-top: 1rem;
+		border: none;
+		border-radius: 5px;
+		padding: 1rem 3rem;
+		margin-bottom: 3rem;
+	}
+
+	&__error {
+		position: absolute;
+		display: block;
+		color: red;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 1rem;
+		font-size: 2rem;
+		
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.reviews {
+		&__place {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		&__box {
+			flex-basis: 40%;
+		}
+
+		&__add__box {
+			width: 60%;
+		}
+	}
+}
+
+// O NAS
+
+.about {
+	padding: 2rem;
+	&__title {
+		font-size: 3rem;
+	}
+	&__title,
+	&__subText {
+		text-align: center;
+		padding: 1rem 0;
+	}
+}
+
+// SLIDER
+
+.about__slider {
+	position: relative;
+	max-width: 120rem;
+
+	margin: auto;
+}
+
+.about__slide {
+	position: relative;
+}
+
+.about__description {
+	color: #f2f2f2;
+	font-size: 1.5rem;
+	padding: 0.8rem 1.2rem;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+.about__numberSlide {
+	color: #f2f2f2;
+	font-size: 3rem;
+	padding: 0.8rem 1.2rem;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.about__dot {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin: 0 0.2rem;
+	background-color: #414141;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.activeDot {
+	background-color: #bbb;
+}
+
+.about__slide {
+	display: none;
+	img {
+		border-radius: 10px;
+		border: 2px solid red;
+	}
+}
+
+.about__img {
+	width: 100%;
+	height: 70%;
+	display: block;
+}
+
+.about__dots-container {
+	padding-top: 1.5rem;
+	text-align: center;
+}
+
+// FAQ
+
+.about {
+	&__faq {
+		width: 100%;
+		padding: 1rem 0;
+	}
+
+	&__box {
+		margin: 2rem auto;
+		width: 60%;
+		max-width: 120rem;
+	}
+	&__faqBtn {
+		background-color: transparent;
+		border: 2px solid #fff;
+		padding: 1rem;
+		width: 100%;
+		text-align: left;
+		border-radius: 6px;
+		transition: background-color 0.3s;
+		cursor: pointer;
+		z-index: 20;
+		font-size: 1.5rem;
+		display: flex;
+		gap: 0 1rem;
+		color: #fff;
+		font-size: 2.5rem;
+	}
+
+	&__faqBtn:hover,
+	&__faqBtn:focus {
+		background-color: rgb(99, 99, 99);
+		color: white;
+		outline: none;
+	}
+
+	&__infoText {
+		margin-bottom: 0.5rem;
+	}
+
+	&__pizzaIcon,
+	&__truckIcon,
+	&__utensilsIcon {
+		margin: 0 1rem;
+		width: 5%;
+		color: gold;
+	}
+	&__info {
+		display: none;
+		padding: 1rem 0.5rem;
+	}
+
+	&__active {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.about {
+		&__faqBtn {
+			font-size: 3rem;
+		}
+	}
+}
+
+// CONTACT
+
+.contact {
+	position: relative;
+	width: 100%;
+	height: 80rem;
+	padding: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	h3 {
+		position: absolute;
+		top: -3rem;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 3rem;
+	}
+
+	&__map {
+		width: 75%;
+		height: 55%;
+		margin: 0 auto;
+	}
+
+	&__box {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		margin: 0 auto;
+	}
+
+	&__title {
+		margin-top: 4rem;
+		font-size: 3rem;
+	}
+
+	&__details {
+		width: 80%;
+
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
+	&__phone,
+	&__mail,
+	&__adress {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 2rem 0;
+
+		i {
+			width: 20%;
+			font-size: 2.5rem;
+		}
+		p {
+			width: 80%;
+			font-size: 2.5rem;
+		}
+	}
+
+	&__phone::after,
+	&__mail::after,
+	&__adress::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 2px;
+		background-color: rgb(192, 192, 192);
+		transition: background-color 0.3s;
+	}
+
+	&__phone:hover::after,
+	&__mail:hover::after,
+	&__adress:hover::after {
+		background-color: gold;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.contact {
+		flex-direction: row;
+		height: 60rem;
+		padding: 1rem 2rem;
+		align-items: center;
+		&__map {
+			height: 90%;
+		}
+		&__title {
+			margin: 0;
+		}
+	}
+}
+
+// FOOTER
+
+.footer {
+	padding: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	&__line {
+		background-color: gold;
+		height: 2px;
+		width: 100%;
+	}
+
+	.fa-brands {
+		font-size: 3rem;
+	}
+
+	&__first-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 40%;
+	}
+
+	&__second-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 40%;
+		a {
+			text-decoration: none;
+			color: #fff;
+			transition: color 0.3s;
+		}
+		a:hover {
+			color: gold;
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.footer {
+		border-top: 2px solid gold;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1rem 5rem;
+		&__title {
+			font-size: 3rem;
+		}
+		&__second-section {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 1rem;
+			font-size: 2rem;
+		}
+	}
+}
