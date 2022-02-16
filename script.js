@@ -94,7 +94,12 @@ function addReview() {
    <div class="reviews__stars">${reviewStars.innerHTML}</div>
    <div class="reviews__text">${reviewArea.value}</div>`
 
-	reviews.appendChild(newReview)
+	if (reviewArea.value.match(/([\<])([^\>]{1,})*([\>])/i) == null) {
+		reviews.appendChild(newReview)
+	} else {
+		alert('Niedozwolone znaki')
+	}
+
 	clearInputs()
 }
 
